@@ -1,0 +1,11 @@
+# Platform
+.DS_Store
+._*
+*.swp
+
+# Build
+dist
+types
+
+# Project
+node_modules

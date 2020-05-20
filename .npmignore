@@ -1,0 +1,12 @@
+# Platform
+.DS_Store
+._*
+*.swp
+
+# Sources
+src
+.idea
+*.iml
+
+# Project
+node_modules
