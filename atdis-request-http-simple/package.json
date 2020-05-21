@@ -1,7 +1,7 @@
 {
-  "name": "atdis-request",
+  "name": "atdis-request-http-simple",
   "version": "0.1.2",
-  "description": "A request pooling library for consuming rate-limited APIs.",
+  "description": "HTTP requests using atdis-request.",
   "main": "dist",
   "types": "types",
   "scripts": {
@@ -19,11 +19,12 @@
   },
   "homepage": "https://github.com/eth-p/node-atdis#readme",
   "devDependencies": {
-    "@types/lru-cache": "^5.1.0",
+    "@types/node-fetch": "^2.5.7",
     "typescript": "^3.9.3"
   },
   "dependencies": {
     "atdis": "=0.1.2",
-    "lru-cache": "^5.1.1"
+    "atdis-request": "=0.1.2",
+    "node-fetch": "^2.6.0"
   }
 }

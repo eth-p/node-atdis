@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/atdis/atdis.iml" filepath="$PROJECT_DIR$/atdis/atdis.iml" />
       <module fileurl="file://$PROJECT_DIR$/atdis-request/atdis-request.iml" filepath="$PROJECT_DIR$/atdis-request/atdis-request.iml" />
+      <module fileurl="file://$PROJECT_DIR$/atdis-request-http-simple/atdis-request-http-simple.iml" filepath="$PROJECT_DIR$/atdis-request-http-simple/atdis-request-http-simple.iml" />
     </modules>
   </component>
 </project>
