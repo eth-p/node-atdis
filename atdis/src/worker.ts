@@ -111,8 +111,20 @@ export class Worker {
 		this._wake();
 	}
 
+
+	/**
+	 * Tries to start the worker.
+	 * If the worker cannot be started, this will return false.
+	 */
+	public tryStart(): boolean {
+		if (this._running && this._stall == null) return false;
+		this.start();
+		return true;
+	}
+
 	/**
 	 * Stops the worker after it's current task is finished.
+	 * @throws Error If the worker is already running.
 	 */
 	public stop(): void {
 		if (!this._running) throw new Error(`Attempted to stop a ${this._state.toLowerCase()} worker.`);
@@ -122,6 +134,16 @@ export class Worker {
 		this._stallPromise = null;
 		this._running = false;
 		this._wake();
+	}
+
+	/**
+	 * Tries to stop the worker after it's current task if finished.
+	 * If the worker cannot be stopped, this will return false.
+	 */
+	public tryStop(): boolean {
+		if (!this._running) return false;
+		this.stop();
+		return true;
 	}
 
 	/**
@@ -138,6 +160,7 @@ export class Worker {
 	 * @private
 	 */
 	private _waitOnTask(): Promise<void> {
+		// TODO: Replace this with a promise-based semaphore.
 		return new Promise(resolve => {
 			this._scheduler.once('schedule', () => {
 				resolve();

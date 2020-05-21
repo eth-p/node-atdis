@@ -26,9 +26,9 @@ const NOOP: () => any = () => {};
  * ```
  */
 export class Scheduler<R, T = undefined> extends EventEmitter<{
-	schedule: (task: ScheduledTask<R, T>) => void;
-	failedTask: (task: ScheduledTask<R, T>, error: any) => void;
-	failedAttempt: (task: ScheduledTask<R, T>, error: any) => void;
+	schedule: (task: Scheduled<R, T>) => void;
+	failedTask: (task: Scheduled<R, T>, error: any) => void;
+	failedAttempt: (task: Scheduled<R, T>, error: any) => void;
 }> {
 
 	private _queue: any;
