@@ -2,7 +2,7 @@
   "packages": [
     "atdis",
     "atdis-request",
-    "atdis-request-http"
+    "atdis-request-http-simple"
   ],
   "version": "0.1.2"
 }

@@ -18,6 +18,8 @@ import fetch from "node-fetch";
  * This uses {@link fetch} internally.
  */
 export class HttpRequest extends Request<Response> {
+	public readonly key: string;
+	
 	/**
 	 * The default delay to use when one couldn't be determined from the headers.
 	 */
@@ -55,10 +57,14 @@ export class HttpRequest extends Request<Response> {
 		this.method = options.method ?? HttpMethod.GET;
 		this.headers = headers instanceof HttpHeaders ? headers : new HttpHeaders(headers);
 		this.body = options.body ?? null;
-	}
-
-	public get key(): string {
-		return `http/${this.method} ${this.url}`;
+		
+		// Create the cache key.
+		this.key = 'http-simple:' + JSON.stringify({
+			method: this.method,
+			headers: this.headers.toObject(),
+			url: this.url,
+			body: this.body.toString(),
+		})
 	}
 
 	public async run(): Promise<Response> {

@@ -1,6 +1,6 @@
 {
   "name": "atdis-request",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A request pooling library for consuming rate-limited APIs.",
   "main": "dist",
   "types": "types",
